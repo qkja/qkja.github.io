@@ -4,13 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="详解MySQL数据库之索引, 玄鸟轩墨">
-    <meta name="description" content="一对一   身份证号
-一对多  班级 中N个学生
-多对多 
-书的目录 英文 一样
-加快查找的效率
-">
+    <meta name="keywords" content="玄鸟轩墨">
+    <meta name="description" content="序言
+今天这个是一个大工程，主要说的就是函数指针相关的知识，以及我们自己写一写qsort函数
+
+函数指针
+在写这个之前，我们先做一下铺垫
+
+函数有地址吗void test()
+&amp;amp;#123;
+    printf(&#34;hehe&#34;);
+&amp;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +28,7 @@
 
     
 
-    <title>详解MySQL数据库之索引 | 玄鸟轩墨</title>
+    <title>玄鸟轩墨</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -251,12 +255,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">详解MySQL数据库之索引</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -370,25 +374,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/MySQL/" class="post-category">
-                                MySQL
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -397,7 +388,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-21
+                    2022-06-24
                 </div>
                 
 
@@ -418,11 +409,118 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>一对一   身份证号</p>
-<p>一对多  班级 中N个学生</p>
-<p>多对多 </p>
-<p>书的目录 英文 一样</p>
-<p>加快查找的效率</p>
+                <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><blockquote>
+<p>今天这个是一个大工程，主要说的就是函数指针相关的知识，以及我们自己写一写qsort函数</p>
+</blockquote>
+<h1 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h1><blockquote>
+<p>在写这个之前，我们先做一下铺垫</p>
+</blockquote>
+<h2 id="函数有地址吗"><a href="#函数有地址吗" class="headerlink" title="函数有地址吗"></a>函数有地址吗</h2><pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hehe"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%p\n"</span><span class="token punctuation">,</span> test<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%p\n"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>test<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/3ddca949d7dc410193a4671553c790b9.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>看来函数是有地址的，而且和数组类似，&amp;函数名 和函数名的地址一样</p>
+</blockquote>
+<h2 id="如何定义函数地址"><a href="#如何定义函数地址" class="headerlink" title="如何定义函数地址"></a>如何定义函数地址</h2><blockquote>
+<p>这个很难用文字只管描述出来，我们是例子来辅助</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token operator">*</span>pf1<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">=</span> Add<span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token operator">*</span>pf2<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>Add<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token function">pf1</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">*</span>pf1<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">*</span>pf2<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/6ff04cc6ee52429bb20ff7084b226cbe.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>这里我们得出一些个结论</p>
+</blockquote>
+<ul>
+<li>*pf1 和 pf1是一样的</li>
+<li>&amp;函数名和函数名类型是一样的</li>
+</ul>
+<blockquote>
+<p>我来解释一下<br>int(*pf1)(int, int) &#x3D; Add;</p>
+</blockquote>
+<ol>
+<li>pf1先和*结合，表明pf1是一个指针</li>
+<li>其次和后面的（int，int）中的（）结合，表明pf1指向的是一个函数</li>
+<li>（int，int）表名函数的参数有两个，都是int型</li>
+<li>最前面的int表示返回值是int型</li>
+</ol>
+<h1 id="函数指针的数组"><a href="#函数指针的数组" class="headerlink" title="函数指针的数组"></a>函数指针的数组</h1><blockquote>
+<p>我们都知道数组是相同类型元素的集合，既然函数指针也是一种指针类型，那么它也可以构成数组，不过要求他们参数和返回类型一摸一样</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">Sub</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> x <span class="token operator">-</span> y<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">Mul</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> x <span class="token operator">*</span> y<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">Div</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> x <span class="token operator">/</span> y<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token operator">*</span>pf<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Add<span class="token punctuation">,</span>Sub<span class="token punctuation">,</span>Mul<span class="token punctuation">,</span>Div <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>这里我也解释一下，int(*pf[4])(int, int) &#x3D; { Add,Sub,Mul,Div };</p>
+</blockquote>
+<ol>
+<li>pf先和[4]结合，表明是一个数组，数组里面有4 的元素</li>
+<li>去掉pf[4]，得到int(* )(int, int) ，这是一个函数指针，所以说4个元素每个都是是一个函数指针</li>
+</ol>
+<h1 id="指向函数指针数组的指针"><a href="#指向函数指针数组的指针" class="headerlink" title="指向函数指针数组的指针"></a>指向函数指针数组的指针</h1><blockquote>
+<p>首先说一下，我也不想套娃，不过知识点在这，我也没办法，这是最后一个了，</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token operator">*</span>pf<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> Add<span class="token punctuation">,</span>Sub<span class="token punctuation">,</span>Mul<span class="token punctuation">,</span>Div <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span>ppf<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>pf<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>解释吧 int(*(*ppf)[4])(int, int) &#x3D; &amp;pf;</p>
+</blockquote>
+<ol>
+<li>ppf和*结合，标明是指针</li>
+<li>去掉*ppf,得到的 int(*[4])(int, int)表示是一个数组</li>
+</ol>
+<h1 id="自己定义实现qsort"><a href="#自己定义实现qsort" class="headerlink" title="自己定义实现qsort"></a>自己定义实现qsort</h1><blockquote>
+<p>我们先看看qsort的参数</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/cb30207941b746948bda03707aac79fa.png" alt="在这里插入图片描述"></p>
 
                 
             </div>
@@ -449,7 +547,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/06/21/07%20%E8%AF%A6%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E7%B4%A2%E5%BC%95/">http://example.com/2022/06/21/07%20%E8%AF%A6%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E7%B4%A2%E5%BC%95/</a>
+                    <a href="http://example.com/2022/06/24/C%E8%AF%AD%E8%A8%80/%E6%8C%87%E9%92%88%E8%AF%A6%E8%A7%A3(2)/">http://example.com/2022/06/24/C%E8%AF%AD%E8%A8%80/%E6%8C%87%E9%92%88%E8%AF%A6%E8%A7%A3(2)/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -486,11 +584,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -662,66 +756,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/06/21/01%20window%E7%8E%AF%E5%A2%83%E4%B8%8BMySQL%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
+                <a href="/2022/06/24/C%E8%AF%AD%E8%A8%80/%E6%8C%87%E9%92%88%E8%AF%A6%E8%A7%A3(2)/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="window环境下MySQL的安装与配置">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">window环境下MySQL的安装与配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/06/21/08%20%E8%AF%A6%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%20%E8%BF%9B%E9%98%B6/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="详解MySQL中数据库的的增删改查 进阶">
-                        
-                        <span class="card-title">详解MySQL中数据库的的增删改查 进阶</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -732,27 +778,53 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-24
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            玄鸟轩墨
                             
                         </span>
                     </div>
                 </div>
+
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/24/C%E8%AF%AD%E8%A8%80/%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            玄鸟轩墨
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
