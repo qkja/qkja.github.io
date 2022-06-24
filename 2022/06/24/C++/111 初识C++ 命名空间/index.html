@@ -1,0 +1,1624 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="玄鸟轩墨">
+    <meta name="description" content="写在前面这是我第一次接触到C++,之前对它的大名可谓是如雷贯耳.这两天有人问我学习C++的感觉怎么样?对此我想说,很难.C++的细节很多,要求我们比学习C语言更加细心,我不是没有学习过OOP语言,但是刚开始接触到还是感觉有点吃力,不过这是一">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+
+    <title>玄鸟轩墨</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">玄鸟轩墨</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">玄鸟轩墨</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-06-24
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>这是我第一次接触到C++,之前对它的大名可谓是如雷贯耳.这两天有人问我学习C++的感觉怎么样?对此我想说,很难.C++的细节很多,要求我们比学习C语言更加细心,我不是没有学习过OOP语言,但是刚开始接触到还是感觉有点吃力,不过这是一种很令人高兴的情况,这代表你在进步,要是我们在一直学习已经站掌握的知识,又怎么会提高我们呢?我学习C++的方法是通过看网上一些大佬讲解的视频，然后通过一些经典的书籍来补充，后面和大家分享一下博客,做些OJ题.这种方法对我来说还是挺不错的，大家要是没有方法，可以先试试这个,后面可以选择更加适合自己的方法.</p>
+<hr>
+<h1 id="什么是C＋＋"><a href="#什么是C＋＋" class="headerlink" title="什么是Ｃ＋＋"></a>什么是Ｃ＋＋</h1><p>这里我就不和大家分享了，一般我们看每一本书都会谈到C++的历史,我想先和大家来一起学习这门语言,后面到最后专门写一篇博客来专门谈谈历史的一些趣闻趣事,这在我们面试的时候可以和面试官聊聊.</p>
+<p>这里我先提一点,C++可以认为是对C语言一些缺陷的补充，C++编译器支持C语言语言的90%以上,类似函数的命名,scanf,printf都是支持的.</p>
+<h1 id="如何创建一个C-文件"><a href="#如何创建一个C-文件" class="headerlink" title="如何创建一个C++文件"></a>如何创建一个C++文件</h1><p>前面我和大家分享C语言时用的环境大部分都是VS2019,这里用来做C++集成开发环境还是可以的，创建文件的步骤和之前是一样的，就是在最后一步，我们的文件的后缀名是.cpp,这样VS就会调用C++的编译器.</p>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204260952349.png" alt="image-20220426095213165"></p>
+<h1 id="Hello-word"><a href="#Hello-word" class="headerlink" title="Hello word"></a>Hello word</h1><p>我们精通各种语言的Hello word,谈个玩笑.Hello word在我心中有不一样的意义，它敲开了很多人对计算机的大门，在这里我们仍旧打印出这句话，标志着我们正式进入C++，大家对代码要是有什么不理解的话，先不要着急，后面我们会一一解剖。</p>
+<pre class=" language-c++"><code class="language-c++">#include <iostream>
+using namespace std;
+
+int main()
+&#123;
+    cout << "hello world" << endl;
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261021483.png" alt="image-20220426102141445"></p>
+<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><p>我们总是看到有人一写代码就把<font color=blue>using namespace std;</font>,这是什么?这是必须的吗?一般的人可能就会谈到记住就可以了,不用管原理,但是对于我们这些要进大厂的人来说,这是很重要的.</p>
+<p>我们先来看一个例子,下面的代码可以跑过吗,为什么不能跑过?</p>
+<blockquote>
+<pre class=" language-c++"><code class="language-c++">void f()
+&#123;
+
+&#125;
+
+int f = 0;
+
+int main()
+&#123;
+    printf("%d", f);
+    return 0;
+&#125;
+</code></pre>
+</blockquote>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261033333.png" alt="image-20220426103328288"></p>
+<blockquote>
+<p>我们可以看出,第一个f表示的是函数名,第二个是一个全部变量,这就给编译器一种误导,这在语法上就是一种错误.在C语言这种错误只能有一种解决方法,函数改名或者是变量改名,这就会造成这样一种情况:</p>
+</blockquote>
+<blockquote>
+<p>函数说:你改名字吧,变量,我这都被调用几百次了.变量反驳到,我这都用了上千次了,你说谁改?这种情况我们该怎么办,在C语言中我们我们只能一个一个修改.但是在C++中我们可以通过一种命名空间的凡是来解决.有人可能会感到纠结,我会这么大意,让它们重名?开玩笑!是的,我们自己当然可以确定自己的的命名不重复,可是大家不要忘了,一个很大的程序是多人协作共同完成的,你可以确定你们几个人甚至几十个人命名不重复,谁都不能保证.</p>
+</blockquote>
+<h2 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h2><p>C++解决命名重复就是使用namespace关键字，这是C++新增的一个，通过这个关键字我们可以把自己定义的变量隔离出来，就是想箱子一样,每一个人拥有一个属于自己箱子,用到的时候,自己打开自己的箱子就可以了.我们后面具体在谈，下面先看一个例子.</p>
+<blockquote>
+<p>我们都知道下面的代码会打印出什么结果,局部优先,结果就是0,但是这里我先要得到全局变量a的结果,也就是10,怎么弄?</p>
+</blockquote>
+<pre class=" language-c++"><code class="language-c++">int a = 10;
+
+int main()
+&#123;
+    int a = 0;
+    printf("a = %d\n", a);
+    return 0;
+&#125;
+</code></pre>
+<h3 id="域作用限定符"><a href="#域作用限定符" class="headerlink" title="域作用限定符 ::"></a>域作用限定符 ::</h3><p>我们可以通过一个::来解决这个问题,我们可以命名空间就是一个箱子,::可以把箱子打开拿到里面的内容.<font color=blue>箱子:: 箱子里面的东西</font>,当箱子省略时,它回去全局变量区那寻找.这就是我们可以得到10的原因.</p>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a = %d\n"</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">:</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261122397.png" alt="image-20220426112249327"></p>
+<h3 id="创建命名空间"><a href="#创建命名空间" class="headerlink" title="创建命名空间"></a>创建命名空间</h3><p> 现在我们就可以放开手和大家分享了,前面的铺垫一已经够我们现在继续说下去了,每一个人都可以创建自己的命名空间,这样的话我们几个人之间就可以不担心命名重复了,使用namespace就可以创建了.</p>
+<p>张三和李四都独自创建了自己的命名空间,这样即使后面它的命名出现错误也不会报错</p>
+<pre class=" language-c++"><code class="language-c++">//张三的命名空间
+namespace N1
+&#123;
+    int a;
+&#125;
+
+//李四的命名空间
+namespace N2
+&#123;
+    int a;
+&#125;
+int main()
+&#123;
+    N1::a = 10;
+    N2::a = 20;
+    printf("%d\n", N1::a);
+    printf("%d\n", N2::a);
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261442709.png" alt="image-20220426144210662"></p>
+<blockquote>
+<p>这里我想谈谈下面几点,这些有助于我们理解命名空间</p>
+</blockquote>
+<p>上面的变命名的变量是全局变量,在我们定义这两个变量后,会在内存中开辟不同的空间.</p>
+<pre class=" language-c++"><code class="language-c++">int main()
+&#123;
+    printf("%p\n", &(N1::a));
+    printf("%p\n", &(N2::a));
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261447236.png" alt="image-20220426144729196"></p>
+<h3 id="命名空间里面可以有什么"><a href="#命名空间里面可以有什么" class="headerlink" title="命名空间里面可以有什么"></a>命名空间里面可以有什么</h3><p>这个问题很好,命名空间里面可以包含三类事物.</p>
+<ol>
+<li>全局变量</li>
+<li>函数</li>
+<li>结构体</li>
+</ol>
+<blockquote>
+<p>前面的全局变量已经和大家分享过了,这里从函数这个比较简单的说起.</p>
+</blockquote>
+<p>和全局变量一样,我们为了防止函数命名重复,也可以把函数放到命名空间里面.</p>
+<pre class=" language-c++"><code class="language-c++">namespace byte
+&#123;
+    void func()
+    &#123;
+        printf("这是 byte 空间里面呢的函数\n");
+    &#125;
+&#125;
+
+int main()
+&#123;
+    byte::func();
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261515474.png" alt="image-20220426151559393"></p>
+<p>在来谈谈结构体,关于结构,要是很上面说的一样就有点落于俗套了,这个我在命名空间重复嵌套这里谈,会好好说说.</p>
+<h2 id="命名空间的嵌套"><a href="#命名空间的嵌套" class="headerlink" title="命名空间的嵌套"></a>命名空间的嵌套</h2><p>一个大型工程,里面可能还要分为很多组别,例如有数据组的,有测试组的,这样的话,我们希望可以对命名空间进行嵌套,这样就可以避免重复</p>
+<p>下面就是重复嵌套的命名空间</p>
+<pre class=" language-c++"><code class="language-c++">namespace byte
+&#123;
+    namespace data
+    &#123;
+        int a;
+    &#125;
+    namespace test
+    &#123;
+        int a;
+    &#125;
+&#125;
+</code></pre>
+<p>这里谈一谈,但我们使用命名空间存储结构体会发什么什么?注意这里的结构体里面存储的是类型,不是变量.当然它可以存储结构体变量.</p>
+<p>下面的的命名空间我们我们可以嵌套几个,里面就可以定义我们的结构体了.</p>
+<pre class=" language-c++"><code class="language-c++">namespace byte
+&#123;
+    //数据组
+    namespace data
+    &#123;
+        struct ListNode
+        &#123;
+            int val;
+            struct ListNode* next;
+        &#125;;
+    &#125;
+    //缓存组
+    namespace cache
+    &#123;
+        struct ListNode
+        &#123;
+            int val;
+            struct ListNode* next;
+        &#125;;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="命名空间名字重复"><a href="#命名空间名字重复" class="headerlink" title="命名空间名字重复"></a>命名空间名字重复</h2><p>当我们定义的命名空间名字重复后,编译器会自动把他整合在一起,也是说名字一样的命名空间可以看作同一个空间.</p>
+<pre class=" language-c++"><code class="language-c++">namespace N1
+&#123;
+    int a;
+    int b;
+&#125;
+namespace N1
+&#123;
+    int a;
+    int b;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261614662.png" alt="image-20220426161429560"></p>
+<h2 id="如何使用命名空间里面的元素"><a href="#如何使用命名空间里面的元素" class="headerlink" title="如何使用命名空间里面的元素"></a>如何使用命名空间里面的元素</h2><p>我想使用命名空间里面的元素,有没有办法内?</p>
+<h3 id="使用域作用限定符"><a href="#使用域作用限定符" class="headerlink" title="使用域作用限定符::"></a>使用域作用限定符::</h3><p>前面我们已经谈过域作用限定符::了,刚才的众多例子中也多次使用了这个域作用限定符,这个域作用限定符的作用就像是可以打开箱子一样,拿出里面的元素.这里具体谈谈.</p>
+<pre class=" language-c++"><code class="language-c++">namespace N1
+&#123;
+    int a;
+    int b;
+&#125;
+
+int main()
+&#123;
+    N1::a = 1;
+    N1::b = 2;
+    printf("%d %d", N1::a, N1::a);
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261538170.png" alt="image-20220426153818056"></p>
+<p>使用域作用限定符<font color=red>::</font>,,我们使用哪个就可以拿出来哪个,这种方法比较谨慎,安全性也比较高,不过有一个缺点就是,有一点麻烦.</p>
+<h3 id="打开全部的元素"><a href="#打开全部的元素" class="headerlink" title="打开全部的元素"></a>打开全部的元素</h3><p>前面谈了有一点麻烦,这里有一个简单的方法,我们可以直接打开命名空间里面的全不元素,大家一看就知道了.</p>
+<blockquote>
+<p>打开命名空间里面的所有元素,直接使用这些就可以了.这样相当于没有定义命名空间.</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c">namespace N1
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> b<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+using namespace N1<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//打开 N1 的命名空间</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    a <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//直接使用</span>
+    b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//直接使用</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d"</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p>一些缺陷在下面谈.</p>
+<h3 id="打开部分元素"><a href="#打开部分元素" class="headerlink" title="打开部分元素"></a>打开部分元素</h3><p>打开全部的元素这种也会带来一部分问题,当我们打开多个命名空间的时候,既有可能会出现命名一样的情况,这里编译器就会报错,这里也有一个折中的方法,用哪个就把它从名宁空间里面拿出来.</p>
+<p>我们打开了变量 a,就可以把他放开了.</p>
+<pre class=" language-c++"><code class="language-c++">namespace N1
+&#123;
+    int a;
+    int b;
+&#125;
+
+using N1::a;    //不用带namespace
+
+int main()
+&#123;
+    a = 20;       //直接使用
+    N1::b = 10;   //不能直接使用
+    printf("%d %d", a, N1::b);
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261608192.png" alt="image-20220426160840036"></p>
+<p>我们这里来个测试,大家应该可以看懂了.</p>
+<pre class=" language-c++"><code class="language-c++">namespace byte
+&#123;
+    int a;
+    //数据组
+    namespace data
+    &#123;
+        struct ListNode
+        &#123;
+            int val;
+            struct ListNode* next;
+        &#125;;
+    &#125;
+    //缓存组
+    namespace cache
+    &#123;
+        int b;
+        struct ListNode
+        &#123;
+            int val;
+            struct ListNode* next;
+        &#125;;
+    &#125;
+&#125;
+using namespace byte;
+using namespace byte::data;
+using byte::cache::b;
+int main()
+&#123;
+    //用域作用限定符
+    byte::a = 10;
+    struct byte::cache::ListNode n1; //有没有struct都可以
+
+    //打开  byte命名空间
+    a = 10;
+    struct data::ListNode n2;  //有没有struct都可以
+
+    //打开  byte命名空间 和  data
+    struct ListNode n3;
+    
+    //使用 cache的的部分元素
+    b = 20;
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261645515.png" alt="image-20220426164551445"></p>
+<hr>
+<h1 id="解释using-namespace-std"><a href="#解释using-namespace-std" class="headerlink" title="解释using namespace std;"></a>解释using namespace std;</h1><p>现在我们就可以知道了他就是打开名为<font color = red>std</font>命名空间,这句话不是必须的,我们也是这样用.</p>
+<pre class=" language-c++"><code class="language-c++">int main()
+&#123;
+    std::cout << "hello word" << std::endl;
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261654671.png" alt="image-20220426165451551"></p>
+<h1 id="C-输入和输出"><a href="#C-输入和输出" class="headerlink" title="C++输入和输出"></a>C++输入和输出</h1><p>我们都知道,C++ 支持C语言的很多语法,这里输入输出可以使用scanf和printf,但是C++也给出了一些其他的方法,而且更加方便,我们先来看看具体如何做.</p>
+<pre class=" language-c++"><code class="language-c++">#include <iostream>
+
+using namespace std;
+
+int main()
+&#123;
+    int a = 0;
+    double d = 0.0f;
+    cin >> a;
+    cin >> d;
+    cout << a;
+    cout << d;
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261709949.png" alt="image-20220426170956780"></p>
+<blockquote>
+<p>注意：早期标准库将所有功能在全局域中实现，声明在.h后缀的头文件中，使用时只需包含对应头文件<br>即可，后来将其实现在std命名空间下，为了和C头文件区分，也为了正确使用命名空间，规定C++头文<br>件不带.h；旧编译器(vc 6.0)中还支持&lt;iostream.h&gt;格式，后续编译器已不支持，因此<strong>推荐</strong>使用<br><strong><iostream>+std</strong>的方式。  </p>
+</blockquote>
+<blockquote>
+<p>这里我要谈一些东西</p>
+</blockquote>
+<ul>
+<li>在使用pritnf时,我们需要指定数据的格式,但是上面这种方法不需要,编译器会自动识别并匹配.</li>
+<li>cin是标准输入流,从键盘中中输入,cout是输出流,输出到屏幕上</li>
+<li>&gt;&gt;和&lt;&lt;可以理解为方向哎u你,例如 cin&gt;&gt;a,就是数据从键盘上输入到a中.cout&lt;&lt;a就是a输出到屏幕上</li>
+<li>大家疑惑插入操作符&lt;&lt;和左移操作符一样，这实际上是操作符的重载。我们现在不需要了解这么多.</li>
+</ul>
+<blockquote>
+<p>如何进行换行?,上面的结果我很不适应,可以换一个行吗? 可以的</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c">using namespace std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> d <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> a<span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> d<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"a = "</span> <span class="token operator">&lt;&lt;</span>a <span class="token operator">&lt;&lt;</span> <span class="token string">'\n'</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"d = "</span> <span class="token operator">&lt;&lt;</span>d <span class="token operator">&lt;&lt;</span> <span class="token string">'\n'</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261718339.png" alt="image-20220426171827283"></p>
+<h1 id="缺省函数"><a href="#缺省函数" class="headerlink" title="缺省函数"></a>缺省函数</h1><p>我们开始疑惑,函数就是函数,什么叫<font color = red>缺省函数</font>.不知道大家知不知道<strong>备胎</strong>,就是有事的时候找你来帮忙,没事的时候就吊着你.缺省函数也是如此,我们先来看看.</p>
+<blockquote>
+<p>这里的func就是一个缺省函数,如果我们不传入参数,a就会赋值10,就是那个备胎,传入了,就可以把备胎给扔掉了.</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a == %d\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">func</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261742641.png" alt="image-20220426174251594"></p>
+<h2 id="缺省函数的应用"><a href="#缺省函数的应用" class="headerlink" title="缺省函数的应用"></a>缺省函数的应用</h2><p>这里我给出一个应用,我们在之前分享数据结构的时候,经常会出现初始化的情况,这里我先义队列为例子</p>
+<blockquote>
+<p>这样我们初始化时就不需要给函数传入多少个空间,一当完成初始化就会有4个数据的空间,第一次插入的时候就不需要扩容了.</p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> Queue
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token operator">*</span> elem<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> cap<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> size<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> Queue<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">QueueInit</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> ps<span class="token punctuation">,</span> <span class="token keyword">int</span> cap <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    ps<span class="token operator">-></span>elem <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token operator">*</span> cap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ps<span class="token operator">-></span>cap <span class="token operator">=</span> cap<span class="token punctuation">;</span>
+    ps<span class="token operator">-></span>size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    Queue qu<span class="token punctuation">;</span>
+    <span class="token function">QueueInit</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>qu<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="多参数的缺省函数"><a href="#多参数的缺省函数" class="headerlink" title="多参数的缺省函数"></a>多参数的缺省函数</h2><p>只有一个函数的缺省函数可能体现不出来特性,下面我们使用三个参数的.</p>
+<h3 id="全部缺省"><a href="#全部缺省" class="headerlink" title="全部缺省"></a>全部缺省</h3><pre class=" language-c++"><code class="language-c++">using namespace std;
+
+void func(int a = 1, int b = 2, int c = 3)
+&#123;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+    cout << "c = " << c << endl;
+&#125;
+int main()
+&#123;
+    func();
+    cout << endl;
+    func(111);
+    cout << endl;
+
+    func(111,222);
+    cout << endl;
+
+    func(111,222,333);
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261758996.png" alt="image-20220426175856935"></p>
+<h3 id="部分缺省"><a href="#部分缺省" class="headerlink" title="部分缺省"></a>部分缺省</h3><p>对于多参数的函数而言,我们可以缺省一部分的参数,不过参数缺省还需要一定的要求.</p>
+<blockquote>
+<p>半缺省参数必须<strong>从右往左依次</strong>来给出，不能间隔着给  </p>
+</blockquote>
+<pre class=" language-c++"><code class="language-c++">void func(int a,int b = 2, int c = 3)
+&#123;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+    cout << "c = " << c << endl;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261802636.png" alt="image-20220426180234587"></p>
+<h2 id="缺省函数的注意事项"><a href="#缺省函数的注意事项" class="headerlink" title="缺省函数的注意事项"></a>缺省函数的注意事项</h2><p>我们来看看这些注意事项</p>
+<ul>
+<li>半缺省参数必须<strong>从右往左依次</strong>来给出，不能间隔着给  </li>
+<li>缺省参数不能在函数声明和定义中同时出现  </li>
+<li>缺省值必须是常量或者全局变量</li>
+</ul>
+<p>第一个我们已经谈过了,这里主要谈第二条,我么缺省函数在声明的时候如何声明</p>
+<pre class=" language-c++"><code class="language-c++">void func(int a = 30);
+void func(int a = 30) 
+&#123;
+    cout << a << endl;
+&#125;
+
+int main()
+&#123;
+    func();
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261817201.png" alt="image-20220426181709140"></p>
+<p>当函数声明遇到函数声明和函数实现的时候,编译器不到使用哪个缺省值,即使有时他们是相同的.这样就会报错.这里我来谈谈</p>
+<h3 id="声明给-定义不给"><a href="#声明给-定义不给" class="headerlink" title="声明给,定义不给"></a>声明给,定义不给</h3><p>我是使用的三个文件来演示的,</p>
+<pre class=" language-c++"><code class="language-c++">//Test.h文件中
+#include <iostream>
+
+using namespace std;
+
+void func(int a = 20);
+
+//test.cpp中
+void func(int a)
+&#123;
+    cout << a << endl;
+&#125;
+
+//mian.cpp中
+#include "Test.h"
+
+int main()
+&#123;
+    func();
+    func(11);
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261844515.png" alt="image-20220426184451441"></p>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261846448.png" alt="image-20220426184644402"></p>
+<h3 id="声明不给-定义给"><a href="#声明不给-定义给" class="headerlink" title="声明不给,定义给"></a>声明不给,定义给</h3><p>这种请情况会报错.</p>
+<pre class=" language-c++"><code class="language-c++">//Test.h文件中
+#include <iostream>
+
+using namespace std;
+
+void func(int a);
+
+//test.cpp中
+void func(int a = 20)
+&#123;
+    cout << a << endl;
+&#125;
+
+//mian.cpp中
+#include "Test.h"
+
+int main()
+&#123;
+    func();
+    func(11);
+    return 0;
+&#125;
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261839893.png" alt="image-20220426183959825"></p>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202204261843672.png" alt="image-20220426184328625"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">玄鸟轩墨</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2022/06/24/C++/111%20%E5%88%9D%E8%AF%86C++%20%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">http://example.com/2022/06/24/C++/111%20%E5%88%9D%E8%AF%86C++%20%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">玄鸟轩墨</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/06/24/C++/12%20%E5%88%9D%E8%AF%86C++%20%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E4%BB%A5%E5%8F%8A%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            玄鸟轩墨
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/24/C%E8%AF%AD%E8%A8%80/05%20C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%886%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            玄鸟轩墨
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022</span>
+            
+            <a href="/about" target="_blank">玄鸟轩墨</a>
+          
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/qkja" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:qkj1205@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2144141068" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2144141068" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+
+
+    <a href="" class="tooltipped" target="_blank" data-tooltip="访问我的CSDN" data-position="top" data-delay="50">
+        <i class="fab fa-CSDN">c</i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

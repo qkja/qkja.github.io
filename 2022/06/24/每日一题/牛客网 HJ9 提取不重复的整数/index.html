@@ -6,8 +6,14 @@
     <meta charset="utf-8">
     <meta name="keywords" content="玄鸟轩墨">
     <meta name="description" content="
+牛客网 HJ9 ：提取不重复的整数
 
-">
+#include &amp;lt;stdio.h&gt;
+
+int func(int x)
+&amp;amp;#123;
+    int arr[9] = &amp;amp;#123; -1 &amp;amp;#125;;
+    int">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -402,8 +408,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202203191350918.png" alt="image-20220319135019707"></p>
-<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202203191351469.png" alt="image-20220319135102358"></p>
+                <blockquote>
+<p>牛客网 <strong>HJ9</strong> ：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/253986e66d114d378ae8de2e6c4577c1?tpId=37&tqId=21232&rp=1&ru=/exam/oj/ta&qru=/exam/oj/ta&sourceUrl=/exam/oj/ta?tpId=37&difficulty=undefined&judgeStatus=undefined&tags=&title=">提取不重复的整数</a></p>
+</blockquote>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//12</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ret <span class="token operator">=</span> x <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> ret<span class="token punctuation">)</span>
+            <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> j<span class="token punctuation">)</span>
+        <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            arr<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> ret<span class="token punctuation">;</span>
+            sum <span class="token operator">=</span> sum <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> ret<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        x <span class="token operator">/</span><span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token function">func</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ret<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://qkj0302.oss-cn-beijing.aliyuncs.com/img2/screenshot202203112337136.png" alt="image-20220311233724045"></p>
 
                 
             </div>
@@ -430,7 +477,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/06/24/C%E8%AF%AD%E8%A8%80/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8/">http://example.com/2022/06/24/C%E8%AF%AD%E8%A8%80/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8/</a>
+                    <a href="http://example.com/2022/06/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E7%89%9B%E5%AE%A2%E7%BD%91%20HJ9%20%E6%8F%90%E5%8F%96%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B4%E6%95%B0/">http://example.com/2022/06/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E7%89%9B%E5%AE%A2%E7%BD%91%20HJ9%20%E6%8F%90%E5%8F%96%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B4%E6%95%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -643,7 +690,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/24/C%E8%AF%AD%E8%A8%80/%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/">
+                <a href="/2022/06/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E7%89%9B%E5%AE%A2%E7%BD%91%20HJ7%20%20%E5%8F%96%E8%BF%91%E4%BC%BC%E5%80%BC/">
                     <div class="card-image">
                         
                         
@@ -680,7 +727,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/24/C%E8%AF%AD%E8%A8%80/%E6%8C%87%E9%92%88%E8%AF%A6%E8%A7%A3(1)/">
+                <a href="/2022/06/24/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E7%89%9B%E5%AE%A2%E7%BD%91%20HJ12%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC/">
                     <div class="card-image">
                         
                         
